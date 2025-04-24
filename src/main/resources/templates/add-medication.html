@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add Medication</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<h1>Add Medication</h1>
+<form th:action="@{/medications}" method="post" th:object="${medication}">
+    <input type="number" th:field="*{patientId}" placeholder="Patient ID"/><br/>
+    <input type="text" th:field="*{name}" placeholder="Name"/><br/>
+    <input type="text" th:field="*{dosage}" placeholder="Dosage"/><br/>
+    <input type="date" th:field="*{startDate}"/><br/>
+    <input type="date" th:field="*{endDate}"/><br/>
+    <button type="submit">Add</button>
+</form>
+</body>
+</html>

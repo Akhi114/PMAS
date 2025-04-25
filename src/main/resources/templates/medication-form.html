@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Medication Form</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<h1 th:text="${medication.id} != null ? 'Update Medication' : 'Add Medication'"></h1>
+<form th:action="@{/medications/save}" method="post" th:object="${medication}">
+    <input type="hidden" th:field="*{id}" />
+    Patient:
+    <select th:field="*{patient.id}">
+        <option th:each="p : ${patients}" th:value="${p.id}" th:text="${p.name}"></option>
+    </select><br/>
+    Medication Name: <input type="text" th:field="*{medicationName}" required /><br/>
+    Dosage: <input type="text" th:field="*{dosage}" required /><br/>
+    <button type="submit">Save</button>
+</form>
+</body>
+</html>

@@ -6,12 +6,12 @@
 </head>
 <body>
 <h1>Add Medication</h1>
-<form th:action="@{/medications}" method="post" th:object="${medication}">
-    <input type="number" th:field="*{patientId}" placeholder="Patient ID"/><br/>
+<form th:action="@{/medications/add}" method="post" th:object="${medication}">
+    <input type="number" th:field="*{patient.id}" placeholder="Patient ID"/><br/>
     <input type="text" th:field="*{name}" placeholder="Name"/><br/>
     <input type="text" th:field="*{dosage}" placeholder="Dosage"/><br/>
-    <input type="date" th:field="*{startDate}"/><br/>
-    <input type="date" th:field="*{endDate}"/><br/>
+    <input type="text" th:field="*{frequency}" placeholder="Frequency"/><br/>
+    <input type="number" th:field="*{duration}" placeholder="Duration"/><br/>
     <button type="submit">Add</button>
 </form>
 </body>

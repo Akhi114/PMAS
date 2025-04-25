@@ -9,33 +9,33 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/appointments")
-public class AppointmentController {
+public class AppointmentRestController {
 
     @Autowired
     private AppointmentService appointmentService;
 
     @PostMapping
     public Appointment create(@RequestBody Appointment appointment) {
-        return appointmentService.save(appointment);
+        return appointmentService.saveAppointment(appointment);
     }
 
     @GetMapping
     public List<Appointment> getAll() {
-        return appointmentService.getAll();
+        return appointmentService.getAllAppointments();
     }
 
     @GetMapping("/{id}")
     public Appointment getById(@PathVariable Long id) {
-        return appointmentService.getById(id);
+        return appointmentService.getAppointmentById(id);
     }
 
     @PutMapping("/{id}")
     public Appointment update(@PathVariable Long id, @RequestBody Appointment appointment) {
-        return appointmentService.update(id, appointment);
+        return appointmentService.updateAppointment(id, appointment);
     }
 
     @DeleteMapping("/{id}")
     public void delete(@PathVariable Long id) {
-        appointmentService.delete(id);
+        appointmentService.deleteAppointment(id);
     }
 }

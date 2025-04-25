@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class PatientServices {
+public class PatientService {
 
     @Autowired
     private PatientRepository patientRepository;
@@ -22,19 +22,19 @@ public class PatientServices {
 
 
 
-    public List<Patient> getAllPatient() {
+    public List<Patient> getAllPatients() {
         return patientRepository.findAll();
     }
 
-    public Patient getById(Long id) {
+    public Patient getPatientById(Long id) {
         return patientRepository.findById(id).orElseThrow(() -> new RuntimeException("Patient not found"));
     }
 
-    public Patient save(Patient patient) {
+    public Patient savePatient(Patient patient) {
         return patientRepository.save(patient);
     }
 
-    public Patient update(Long id, Patient updatePatient) {
+    public Patient updatePatient(Long id, Patient updatePatient) {
         Patient existing = patientRepository.findById(id).orElse(null);
         if (existing != null) {
             existing.setName(updatePatient.getName());

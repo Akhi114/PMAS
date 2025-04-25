@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Appointment Form</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<h1 th:text="${appointment.id} != null ? 'Update Appointment' : 'Add Appointment'"></h1>
+<form th:action="@{/appointments/save}" method="post" th:object="${appointment}">
+    <input type="hidden" th:field="*{id}" />
+    Patient:
+    <select th:field="*{patient.id}">
+        <option th:each="p : ${patients}" th:value="${p.id}" th:text="${p.name}"></option>
+    </select><br/>
+    Doctor:
+    <select th:field="*{doctor.id}">
+        <option th:each="d : ${doctors}" th:value="${d.id}" th:text="${d.name}"></option>
+    </select><br/>
+    Appointment Date: <input type="datetime-local" th:field="*{appointmentDate}" required /><br/>
+    <button type="submit">Save</button>
+</form>
+</body>
+</html>

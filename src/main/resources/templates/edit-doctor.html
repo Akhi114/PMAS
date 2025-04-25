@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Edit Doctor</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<h1>Edit Doctor</h1>
+<form th:action="@{/doctors/update/ {id}(id=${doctor.id})}" method="post" th:object="${doctor}">
+    <input type="text" th:field="*{name}" placeholder="Name"/><br/>
+    <input type="text" th:field="*{specialty}" placeholder="Specialty"/><br/>
+    <button type="submit">Update</button>
+</form>
+</body>
+</html>

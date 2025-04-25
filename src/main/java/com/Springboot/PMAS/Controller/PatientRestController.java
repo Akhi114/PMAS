@@ -1,7 +1,7 @@
 package com.Springboot.PMAS.Controller;
 
 import com.Springboot.PMAS.Entity.Patient;
-import com.Springboot.PMAS.Service.PatientServices;
+import com.Springboot.PMAS.Service.PatientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,10 +12,10 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/patients")
 @CrossOrigin(origins = "*") // Reminder: this allows frontend calls
-public class PatientController {
+public class PatientRestController {
 
     @Autowired
-    private PatientServices patientService;
+    private PatientService patientService;
 
     @PostMapping("/register")
     public ResponseEntity<Patient> registerPatient(@RequestBody Patient patient) {
@@ -25,12 +25,12 @@ public class PatientController {
 
     @GetMapping
     public ResponseEntity<List<Patient>> getAllPatients() {
-        return ResponseEntity.ok(patientService.getAllPatient());
+        return ResponseEntity.ok(patientService.getAllPatients());
     }
 
     @GetMapping("/{id}")
     public Patient getPatientById(@PathVariable Long id) {
-        return patientService.getById(id);
+        return patientService.getPatientById(id);
     }
 
 //    @PostMapping
@@ -40,7 +40,7 @@ public class PatientController {
 
     @PutMapping("/{id}")
     public Patient updatePatient(@PathVariable Long id, @RequestBody Patient patient) {
-        return patientService.update(id, patient);
+        return patientService.updatePatient(id, patient);
     }
 
     @DeleteMapping("/{id}")

@@ -9,33 +9,33 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/doctors")
-public class DoctorController {
+public class DoctorRestController {
 
     @Autowired
     private DoctorService doctorService;
 
     @PostMapping
     public Doctor saveDoctor(@RequestBody Doctor doctor) {
-        return doctorService.save(doctor);
+        return doctorService.saveDoctor(doctor);
     }
 
     @GetMapping
     public List<Doctor> getAllDoctors() {
-        return doctorService.getAll();
+        return doctorService.getAllDoctors();
     }
 
     @GetMapping("/{id}")
     public Doctor getDoctor(@PathVariable Long id) {
-        return doctorService.getByID(id);
+        return doctorService.getDoctorById(id);
     }
 
     @PutMapping("/{id}")
     public Doctor updateDoctor(@PathVariable Long id, @RequestBody Doctor doctor) {
-        return doctorService.update(id, doctor);
+        return doctorService.updateDoctor(id, doctor);
     }
 
     @DeleteMapping("/{id}")
     public void deleteDoctor(@PathVariable Long id) {
-        doctorService.delete(id);
+        doctorService.deleteDoctor(id);
     }
 }

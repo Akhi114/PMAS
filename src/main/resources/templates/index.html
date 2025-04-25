@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Healthcare Management System</title>
+
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
+<body>
+<h1>Welcome to the Healthcare Management System</h1>
+<nav>
+    <ul>
+        <li><a th:href="@{/patients}">Manage Patients</a></li>
+        <li><a th:href="@{/doctors}">Manage Doctors</a></li>
+        <li><a th:href="@{/appointments}">Manage Appointments</a></li>
+        <li><a th:href="@{/medications}">Manage Medications</a></li>
+    </ul>
+</nav>
+</body>
+</html>

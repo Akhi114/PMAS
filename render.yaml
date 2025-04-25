@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: patient-management-app
+    env: java
+    plan: free
+    buildCommand: ./mvnw clean install
+    startCommand: java -jar target/*.jar
+    envVars:
+      - key: SPRING_PROFILES_ACTIVE
+        value: prod
+      - key: SPRING_DATASOURCE_URL
+        value: postgresql://patientdb_0x2s_user:iSHV7hv0v61Hn2s3XyYU9xeUzKSYqmdR@dpg-d05l8h2dbo4c73f74o80-a/patientdb_0x2s
+      - key: SPRING_DATASOURCE_USERNAME
+        value: patientdb_0x2s_user
+      - key: SPRING_DATASOURCE_PASSWORD
+        value: iSHV7hv0v61Hn2s3XyYU9xeUzKSYqmdR

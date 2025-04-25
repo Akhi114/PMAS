@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Edit Appointment</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<h1>Edit Appointment</h1>
+<form th:action="@{/appointments/{id}(id=${appointment.id})}" method="post" th:object="${appointment}">
+    <input type="number" th:field="*{patient.id}" placeholder="Patient ID"/><br/>
+    <input type="number" th:field="*{doctor.id}" placeholder="Doctor ID"/><br/>
+    <input type="date" th:field="*{date}"/><br/>
+    <input type="text" th:field="*{timeSlot}" placeholder="timeSlot"/><br/>
+    <button type="submit">Update</button>
+</form>
+</body>
+</html>

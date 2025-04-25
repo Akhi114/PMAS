@@ -1,10 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><title th:text="${title}">Add/Edit Patient</title>
+  <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 <body>
-$END$
+<h1 th:text="${title}"></h1>
+<form th:action="@{/patients/save}" method="post" th:object="${patient}">
+  <input type="text" th:field="*{name}" placeholder="Name"/>
+  <input type="text" th:field="*{address}" placeholder="Address"/>
+  <input type="text" th:field="*{disease}" placeholder="Disease"/>
+  <input type="date" th:field="*{admissionDate}" />
+  <button type="submit">Save</button>
+</form>
 </body>
 </html>

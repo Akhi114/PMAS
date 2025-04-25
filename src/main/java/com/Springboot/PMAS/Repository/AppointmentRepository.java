@@ -1,4 +1,8 @@
 package com.Springboot.PMAS.Repository;
 
-public interface AppointmentRepository {
+import com.Springboot.PMAS.Entity.Appointment;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface AppointmentRepository extends JpaRepository<Appointment, Long> {
+
 }
